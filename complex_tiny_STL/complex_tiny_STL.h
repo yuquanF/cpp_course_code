@@ -19,12 +19,12 @@ Complex &_doaml(Complex *ths, const Complex &c); // *=
 class Complex
 {
 public:
-    Complex(double r = 0, double i = 0) : re(r), im(i) {}
+    explicit Complex(double r = 0, double i = 0) : re(r), im(i) {}
     Complex &operator+=(const Complex &);
     Complex &operator-=(const Complex &);
     Complex &operator*=(const Complex &);
-    double real() const { return re; }
-    double imag() const { return im; }
+    [[nodiscard]] double real() const { return re; }
+    [[nodiscard]] double imag() const { return im; }
 
 private:
     double re, im;
